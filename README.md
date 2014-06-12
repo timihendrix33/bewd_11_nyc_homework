@@ -1,10 +1,5 @@
-![BEWD Logo](assets/BEWD_Logo.png)
 
-Congratulations on joining us at General Assembly for the __Back-End Web Development__ course! **All your class files can be found here**.
-
-=======
-
-## GitHub Class Repository
+## BEWD 11 GitHub Class Repository
 GitHub is a popular developer tool, and we want you to be familiar with it. GA is all about learning by doing, so in order to learn how to use GitHub we are going to use it every lesson as part of the course.
 
 During the first lesson, you should make a clone of this repository for your own personal use (fork and then clone the repo). 
