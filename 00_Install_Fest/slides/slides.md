@@ -44,6 +44,7 @@ During this course we will learn (at a high level):
 
 ## Class format and structure
 
+* Lecture / Demo
 * In class labs
 * Homework
 * Slides / student handouts available in GitHub
@@ -79,7 +80,55 @@ To pass the course you will need to:
 
 ---
 
+## How to think like a developer
+
+* Write your code so that someone else can easily understand what it does
+* Write code as if you are part of a team, no matter how many people are involved
+* Respect the user and product steak holders, honor good coding principles (know when to listen to one over the other)
+* Be the developer that everyone wants to work with
+* Never be afraid to try
+
+---
+
 ## Break!
+
+---
+
+## Class Overview
+### Part 1 - Ruby
+
+ 
+* 00_Install_Fest
+* 01 _Dev_Workflow
+* 02_Variables_Conditionals
+* 03_Collections_Loops
+* 04_Collections_APIs
+* 05_Classes_Objects
+* 06_Sharing_Behavior
+
+ ---
+
+## Class Overview
+### Part 2 - Rails
+
+* 07_First_Rails_App
+* 08_Routes_Cont_Views
+* 09_Models_Active_Record
+* 10_Forms
+* 11_Lab_Session (Play with Rails)
+* 12_Authentication
+* 13_Associations
+* 14_Starting (Play with designing an app...)
+* 15_Lab_Session  (Build an app from scratch)
+* 16_Finishing_Touches (Use other libraries, smooth out the rough edges)
+* 17_Gems
+* 18_Third_Party_API
+* 19_Project_Lab_Session 
+* 20_Final_Project_Presentations (Yay!)
+
+---
+
+## Hello World!
 
 ---
 
