@@ -1,0 +1,34 @@
+sh: grunt: command not found
+[4mRunning "connect:server" (connect) task[24m
+Starting connect web server on localhost:8000.
+
+[4mRunning "watch" task[24m
+Waiting...[4mRunning "connect:server" (connect) task[24m
+Starting connect web server on localhost:8000.
+
+[4mRunning "watch" task[24m
+Waiting...[4mRunning "connect:server" (connect) task[24m
+Starting connect web server on localhost:8000.
+
+[4mRunning "watch" task[24m
+Waiting...[4mRunning "connect:server" (connect) task[24m
+Starting connect web server on localhost:8000.
+
+[4mRunning "watch" task[24m
+Waiting...[4mRunning "connect:server" (connect) task[24m
+Starting connect web server on localhost:8000.
+
+[4mRunning "watch" task[24m
+Waiting...[32mOK[39m
+[32m>> [39mFile "css/theme/source/ga.scss" changed.
+[4mRunning "sass:main" (sass) task[24m
+
+[32mDone, without errors.[39m
+
+[36mCompleted in 2.65s at Mon Jun 16 2014 15:47:09 GMT-0400 (EDT)[39m - Waiting...[32mOK[39m
+[32m>> [39mFile "css/theme/source/ga.scss" changed.
+[4mRunning "sass:main" (sass) task[24m
+
+[32mDone, without errors.[39m
+
+[36mCompleted in 2.44s at Mon Jun 16 2014 15:47:13 GMT-0400 (EDT)[39m - Waiting...
