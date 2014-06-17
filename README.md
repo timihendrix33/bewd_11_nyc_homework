@@ -9,13 +9,13 @@ During the first lesson, you should make a clone of this repository for your own
 
 From the terminal, clone the repository by typing:
 ```bash
-git clone https://github.com/YOUR_USERNAME_HERE/BEWD_NYC_10.git
+git clone https://github.com/YOUR_USERNAME_HERE/BEWD_NYC_11.git
 ```
 In addition, you should create a link to the instructor's copy on GitHub (which we call an upstream remote) so that you can download the latest version of your materials.
 
 You can do this with the termianl as so:
 ```bash
-git remote add upstream https://github.com/ga-students/BEWD_NYC_10.git 
+git remote add upstream https://github.com/ga-students/BEWD_NYC_11.git 
 ```
 Verify you added both remotes by typing. You should see four lines starting with `origin` and `upstream`:
 ```bash
@@ -27,7 +27,7 @@ We know it takes time to get familiar with GitHub so here are a few quick tips:
 ### How Do I Get Files From GitHub?
 For each lesson the instructor will post slides, exercises and, solution files. To get these files, __pull__ (download) them from the instructor's repository (upstream). 
 
-From the terminal type: (first make sure you are in the correct directory, by using `cd ~/dev/BEWD_NYC_10/`)
+From the terminal type: (first make sure you are in the correct directory, by using `cd ~/dev/BEWD_NYC_11/`)
 ```bash
 git pull --rebase upstream master
 ```
@@ -41,7 +41,7 @@ Yes, you may have your files locally on your computer but consider pushing them 
 To __push__ files to GitHub:
 
 From the terminal type:
-(make sure you are in the correct directory, by using `cd ~/dev/BEWD_NYC_10/`)
+(make sure you are in the correct directory, by using `cd ~/dev/BEWD_NYC_11/`)
 ```bash
 git add path/to/files_you_want_to_add
 ```
@@ -54,7 +54,7 @@ git commit -m "Enter a message describing what you're pushing here."
 git push origin master
 ```
 
-And that's it! All of your files will be added to GitHub and will be accessible, here: https://github.com/YOUR_USERNAME_HERE/BEWD_NYC_10
+And that's it! All of your files will be added to GitHub and will be accessible, here: https://github.com/YOUR_USERNAME_HERE/BEWD_NYC_11
 
 See this [link](https://help.github.com/articles/fork-a-repo) for more detailed information on fork, upstream, pull, and push:
 
@@ -64,7 +64,7 @@ To submit homework, you can follow these steps:
 
 1. First, `cd` into the place where you store your BEWD files. For many of you this is in your `~/dev/BEWD_NYC_10` folder.
 ```bash
-cd ~/dev/BEWD_NYC_10_Homework/
+cd ~/dev/BEWD_NYC_11_Homework/
 ```
 
 2. Copy the homework into your personal directory. You'll want to replace `Secret_Number` and `Brooks Swinnerton` with the homework we're working on and your name respectively:  
