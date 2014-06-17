@@ -62,7 +62,7 @@ See this [link](https://help.github.com/articles/fork-a-repo) for more detailed 
 ### How Do I Submit Homework?
 To submit homework, you can follow these steps:
 
-1. First, `cd` into the place where you store your BEWD files. For many of you this is in your `~/dev/BEWD_NYC_10` folder.
+1. First, `cd` into the place where you store your BEWD files. For many of you this is in your `~/dev/BEWD_NYC_11` folder.
 ```bash
 cd ~/dev/BEWD_NYC_11_Homework/
 ```
