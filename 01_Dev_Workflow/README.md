@@ -35,6 +35,7 @@ subl -n . #open sublime with a new window, using the current directory
 ```
 #### Ruby
 
+```
 my_var = 1 # assign a variable 
 
 # define a method
@@ -48,7 +49,7 @@ end
 def add_two(number)
   return number + 2
 end
-
+```
 
 
 
