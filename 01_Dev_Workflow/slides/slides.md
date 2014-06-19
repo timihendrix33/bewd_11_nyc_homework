@@ -16,6 +16,10 @@ bernie@gowatchit.com | @bjk
 * Ruby code
 * Homework (n0000000)
 
+-
+
+### Don't worry about git. We are coding today. Git is for monday!
+
 ---
 
 ## Tools
@@ -143,13 +147,12 @@ For Windows:
 ##Programming Fundamentals
 * In order to start writing our own Ruby programs, we need to learn some of the basic fundamental tools
 * Specifically, we need to learn:
-  * Variables
-  * Methods
-  * Conditions
+  * Variables (Nouns, things, subject of the sentence)
+  * Methods (verbs, DO THINGS, predicate of the sentence)
+  * Conditions (If we have time)
 * We will first learn the basics on their own, and then try to apply our skills in a simple interactive Ruby script
 
 ---
-
 
 ##Saving Values
 ### Using Variables
@@ -194,7 +197,6 @@ For Windows:
 Let's learn how to assign and access simple integer and string variables
 
 ---
-
 
 ##Saving Code
 ###Using Methods
@@ -272,60 +274,6 @@ Variables
 * Store values
 * Can be passed to methods as parameters
 
----
-
-##Conditional Logic
-###Decision Time 
-
-It's either TRUE or FALSE (like booleans)
-
-If you are greater than 18 
-you are an adult
-
-  if age > 18
-    puts "You are an adult"
-  end
-
----
-
-
-##Conditional Logic
-###Multiple Conditions
-
-
-  guess = 7 
-  if guess > 5
-    puts "Too high!"
-  elseif guess < 5
-    puts "Too Low!"
-  else
-    puts "You've guessed my hidden digit!"
-  end
-
----
-
-##Conditional Logic
-###Multiple Conditions
-
-![truth_table](../../assets/ruby/truth_table.png)
-
----
-
-![GeneralAssemb.ly](http://studio.generalassemb.ly/GA_Slide_Assets/Exercise_icon_md.png)
-##Lab Time
-*   Conditional Teddit
-
----
-
-
-## Homework
-###Secret Number
-
-Let's see a demo of Secret Number
-
-* HW 1 - Secret Number
-  * Secret number is a game we will incrementally build for homework during the Ruby portion of the course. 
-    Players must guess a secret number and your program will provide feedback. 
 ---
 
 ## Homework
