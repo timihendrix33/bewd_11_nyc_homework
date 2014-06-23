@@ -7,3 +7,7 @@ def mikes_method
 end
 
 mikes_method
+
+def another_method
+	puts "do something else"
+end
