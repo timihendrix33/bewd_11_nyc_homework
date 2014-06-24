@@ -16,10 +16,50 @@
 # Here are some guidelines to building your game:
 #
 #	Intros
+
+		def get_input
+			gets
+		end
+
+		def guess(guess_number)
+			puts guess_number
+			puts guess_number.class
+			"#{guess_number}".to_i
+			puts guess_number.class
+			if guess_number > @number
+				puts "too high"
+			elsif guess_number < @number
+				puts "too low"
+			else
+				puts "you win!"
+			end
+		end
+
+
+
 # 	-	Welcome the player to your game. Let them know who created the game. 
-#	  -	Ask for the player's name then personally greet them by printing to the screen, "Hi player_name!"
+# 		puts "Welcome to the secret number game"
+
+# #	  -	Ask for the player's name then personally greet them by printing to the screen, "Hi player_name!"
+# 		puts "What is your name?"
+# 		player_name = get_input
+
+# 		puts "Hi, #{player_name} !"
+
 #	  -	Any good game will communicate the rules. Let the player know they must guess a number between 1 and 10 
 #		and that they only have 3 tries to do so.
+		puts "Guess a number between 1 and 10 in 3 tries to win."
+
+		@number = 7
+		puts @number.class
+
+		puts "Guess 1:"
+
+		guess_number = get_input
+
+		guess(guess_number)
+
+		
 #
 #	Functionality: 
 #	 -	Hard code the secret number. Make it a random number between 1 and 10.
