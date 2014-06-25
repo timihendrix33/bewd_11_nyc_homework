@@ -16,25 +16,39 @@
 # Here are some guidelines to building your game:
 #
 #	Intros
-
+		
+		@guesses_remaining = 3
 
 		def guess(guess_number)
 
-			guesses_remaining = 3
+			@guesses_remaining = @guesses_remaining - 1
 
-			def count_down(guesses_remaining)
-				
+			if @guesses_remaining != 1
+				guess_plural = "guesses"
+			else
+				guess_plural = "guess"
 			end
 
-
-			guess_again = "you have #{guesses_remaining} guesses left. Try again:"
+			guess_again = "you have #{@guesses_remaining} #{guess_plural} left. Try again:"
 
 
 
 			if guess_number > @number
-				puts "too high, #{guess_again}"
+				if @guesses_remaining > 0
+					puts "too high, #{guess_again}" 
+					guess_number = gets.chomp.to_i
+					guess(guess_number)
+				else
+					puts "Game Over! The number was #{@number}"
+				end	
 			elsif guess_number < @number
-				puts "too low, #{guess_again}"
+				if @guesses_remaining > 0
+					puts "too low, #{guess_again}"
+					guess_number = gets.chomp.to_i
+					guess(guess_number)
+				else
+					puts "Game Over! The number was #{@number}"					
+				end
 			else
 				puts "you win!"
 			end
@@ -47,7 +61,7 @@
 
 # #	  -	Ask for the player's name then personally greet them by printing to the screen, "Hi player_name!"
 		puts "What is your name?"
-		player_name = get_input
+		player_name = gets.chomp
 
 		puts "Hi, #{player_name} !"
 
