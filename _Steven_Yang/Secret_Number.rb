@@ -16,6 +16,6 @@ end
 puts "Please take you guess at my secret_number"
 guess = user_input
 
-answer = IsguessCorrect(guess)
+answer = IsguessCorrect(guess.to_i)
 puts "is your guess correct? #{answer}"
 
