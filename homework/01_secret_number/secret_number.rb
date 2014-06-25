@@ -17,15 +17,9 @@
 #
 #	Intros
 
-		def get_input
-			gets
-		end
 
 		def guess(guess_number)
-			puts guess_number
-			puts guess_number.class
-			"#{guess_number}".to_i
-			puts guess_number.class
+
 			if guess_number > @number
 				puts "too high"
 			elsif guess_number < @number
@@ -51,11 +45,12 @@
 		puts "Guess a number between 1 and 10 in 3 tries to win."
 
 		@number = 7
+		puts @number
 		puts @number.class
 
 		puts "Guess 1:"
 
-		guess_number = get_input
+		guess_number = gets.chomp.to_i
 
 		guess(guess_number)
 
