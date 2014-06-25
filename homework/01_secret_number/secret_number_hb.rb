@@ -46,6 +46,10 @@ def secret_number_game
 		return "Congratulations, you've guessed it!"
 	end	
 
+user_guess = gets.chomp
+puts "What is your first guess?"
+
+
 #	 - 	Ask the user for their guess.
 #	 -	Verify if they were correct. If the player guesses correctly they win the game they should be congratulated and the game should end.
 #	 -	If they guess incorrectly, give the player some direction. If they guess too high let them know, if they guess too low, let them know.
