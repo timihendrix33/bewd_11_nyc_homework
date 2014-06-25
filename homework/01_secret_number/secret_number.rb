@@ -20,10 +20,21 @@
 
 		def guess(guess_number)
 
+			guesses_remaining = 3
+
+			def count_down(guesses_remaining)
+				
+			end
+
+
+			guess_again = "you have #{guesses_remaining} guesses left. Try again:"
+
+
+
 			if guess_number > @number
-				puts "too high"
+				puts "too high, #{guess_again}"
 			elsif guess_number < @number
-				puts "too low"
+				puts "too low, #{guess_again}"
 			else
 				puts "you win!"
 			end
@@ -35,18 +46,16 @@
 # 		puts "Welcome to the secret number game"
 
 # #	  -	Ask for the player's name then personally greet them by printing to the screen, "Hi player_name!"
-# 		puts "What is your name?"
-# 		player_name = get_input
+		puts "What is your name?"
+		player_name = get_input
 
-# 		puts "Hi, #{player_name} !"
+		puts "Hi, #{player_name} !"
 
 #	  -	Any good game will communicate the rules. Let the player know they must guess a number between 1 and 10 
 #		and that they only have 3 tries to do so.
 		puts "Guess a number between 1 and 10 in 3 tries to win."
 
 		@number = 7
-		puts @number
-		puts @number.class
 
 		puts "Guess 1:"
 
