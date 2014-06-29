@@ -25,60 +25,73 @@
 ############################################################################### 	
 require "active_support/core_ext/integer/inflections" #supports the ordinalize method
 
-
+# Set default values
 count = 1
 max_guesses = 3
 min_num = 1
 max_num = 10
 secret_number = rand(1..10)
 
-# Program introduction, user info get, and rules sections
-puts ""
-puts "          |------------------------|"
-puts "          | THE SECRET NUMBER GAME |"
-puts "          |                        |"
-puts "          |               by: ~STH |"
-puts "          |------------------------|"
-puts ""
-puts "Player, what is your name?"
+def intro
+	# Program introduction, user info get, and rules sections
+	puts ""
+	puts "          |------------------------|"
+	puts "          | THE SECRET NUMBER GAME |"
+	puts "          |                        |"
+	puts "          |               by: ~STH |"
+	puts "          |------------------------|"
+	puts ""
+end
 
-player_name = gets.chomp
+def get_name
+	puts "Player, what is your name?"
+	return player_name = gets.chomp
+end
 
-puts ""
-puts "Hi, #{player_name}! Get ready to guess... but first, the rules."
-puts ""
-puts "Rules:"
-puts "- the number will be an integer between #{min_num} and #{max_num}."
-puts "- you will have #{max_guesses} chances to guess the secret number."
-puts ""
+def display_rules(player_name,min_num, max_num, max_guesses)
+	puts ""
+	puts "Hi, #{player_name}! Get ready to guess... but first, the rules."
+	puts ""
+	puts "Rules:"
+	puts "- the number will be an integer between #{min_num} and #{max_num}."
+	puts "- you will have #{max_guesses} chances to guess the secret number."
+	puts ""
+end
 
 # Guessing section
 
-loop do # Loop controls input of guesses
-  # Prompts for the guess and informs of the guess count.
-  puts "What is your #{count.ordinalize} guess? (#{count}/#{max_guesses})"
-  guess = gets.to_i
-  
-  # check guess against bounds and then secret number
-  if guess > max_num || guess < min_num
-  	puts "Wasted guess! You're supposed to guess an integer between 1 and 10."
-  	count +=1
-  elsif guess == secret_number
-  	puts "You won!"
-  	break
-  elsif guess > secret_number
-  	puts "Too high!"
-  	count += 1
-  elsif guess < secret_number
-  	puts "Too Low!"
-  	count += 1
-  end
+def the_game(count, min_num, max_num, max_guesses, secret_number)
+	loop do # Loop controls input of guesses
+	  # Prompts for the guess and informs of the guess count.
+	  puts "What is your #{count.ordinalize} guess? (#{count}/#{max_guesses})"
+	  guess = gets.to_i
+	  
+	  # check guess against bounds and then secret number
+	  if guess > max_num || guess < min_num
+	  	puts "Wasted guess! You're supposed to guess an integer between 1 and 10."
+	  	count +=1
+	  elsif guess == secret_number
+	  	puts "You won!"
+	  	break
+	  elsif guess > secret_number
+	  	puts "Too high!"
+	  	count += 1
+	  elsif guess < secret_number
+	  	puts "Too Low!"
+	  	count += 1
+	  end
 
-  if count > max_guesses
-  	puts "You lost! The secret number was: #{secret_number}."
-  	break
-  end
+	  if count > max_guesses
+	  	puts "You lost! The secret number was: #{secret_number}."
+	  	break
+	  end
+	end
 end
+
+intro
+player = get_name
+display_rules(player, min_num, max_num, max_guesses)
+the_game(count, min_num, max_num, max_guesses, secret_number)
 
 
 
