@@ -46,20 +46,20 @@ puts "Welcome to this secret number game thing by me, Christine! What's your nam
 player_name = get_input
 puts "Hi #{player_name}! What number am I thinking of? You have three guesses."
 
-3.downto(1) do |num|
+3.downto(1) do |turn|
 
   guess = get_input
 
-  if guess.to_i < secret_number || guess.to_i > secret_number
-    if num == 3
+  if guess.to_i != secret_number
+    if turn == 3
       puts "Nope! Try again. You have two tries left."
     end
     
-    if num == 2
+    if turn == 2
       puts "Nope! Try again. You have one try left."
     end
     
-    if num == 1
+    if turn == 1
       puts "Nope! Sorry. You lose. Game over."
     end
 
