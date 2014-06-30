@@ -31,7 +31,7 @@ def check_number (number, guesses_left)
   # puts "You got it!"
 end # check_number
 
-puts "Random Number Game! Guess a number between 1 and 10. You have only 3 guesses to do so."
+puts "Random Number Game! Guess a number between 1 and 10. You have only 3 guesses to guess the correct number."
 
 # create array of numbers for program to sample
 number_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
