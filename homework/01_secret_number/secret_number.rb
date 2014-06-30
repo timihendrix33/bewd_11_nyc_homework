@@ -36,3 +36,37 @@
 #
 ###############################################################################
 
+def get_input
+  return gets.chomp
+end
+
+secret_number = 7
+
+puts "Welcome to this secret number game thing by me, Christine! What's your name?"
+player_name = get_input
+puts "Hi #{player_name}! What number am I thinking of? You have three guesses."
+
+3.downto(1) do |num|
+
+  guess = get_input
+
+  if guess.to_i < secret_number || guess.to_i > secret_number
+    if num == 3
+      puts "Nope! Try again. You have two tries left."
+    end
+    
+    if num == 2
+      puts "Nope! Try again. You have one try left."
+    end
+    
+    if num == 1
+      puts "Nope! Sorry. You lose. Game over."
+    end
+
+  else 
+    puts "You did it! You're psychic! Game over."
+    break
+  end
+end
+
+
