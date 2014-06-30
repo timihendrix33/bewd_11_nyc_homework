@@ -17,36 +17,56 @@
 #
 #	Intros
 # 	-	Welcome the player to your game. Let them know who created the game. 
-puts "Welcome, player! HB has created the game, so sit back relax and enjoy!"
 #	  -	Ask for the player's name then personally greet them by printing to the screen, "Hi player_name!"
-
+puts "Welcome, player! HB has created the game, so sit back relax and enjoy!"
 puts "What is your name, per favore?"
 
-user_name=gets
-puts user_name
+user_name=gets.chomp
 
-puts "Hallo there, #{user_name}!"
+puts "Hallo there, #{user_name.upcase}!"
 
 #	  -	Any good game will communicate the rules. Let the player know they must guess a number between 1 and 10 
 #		and that they only have 3 tries to do so.
-
 puts "Now, for the game-- you must guess the number I am thinking of between 1 and 10, with only three tries...Godspeed!"
 #
 #	Functionality: 
 #	 -	Hard code the secret number. Make it a random number between 1 and 10.
+puts "What is your first guess?"
+user_guess=gets.chomp.to_i
 
-def secret_number_game
 	secret_number = 4
 
-	if gets > 4
-		return "Oops, not high enough!"
-	if else gets < 4
-		return "That's a tad too high..."
-	if gets == 4
-		return "Congratulations, you've guessed it!"
-	end	
+def secret_number_game(user_guess,secret_number)
 
-#	 - 	Ask the user for their guess.
+	if user_guess < secret_number
+	puts "#{user_guess}? Not quite high enough..."
+	elsif user_guess > secret_number
+		puts "Oops, #{user_guess} is a tad too high..."
+	else user_guess == secret_number
+		puts "Congrats, you've guessed it!"
+	end
+end
+
+3.downto(1) do secret_number_game(user_guess,secret_number)
+
+	break if user_guess == secret_number
+
+guesses = 2
+	while guesses > 1
+		puts "You have #{guesses} guesses left...use them wisely.."
+		guesses -= 1
+	puts "Care to guess again?"
+	user_guess = gets.chomp.to_i
+	end
+
+	if guesses == 1
+		puts "Okay, I'll give you one more shot...make it count!"
+	user_guess = gets.chomp.to_i
+		guesses -= 1
+	end
+end
+
+
 #	 -	Verify if they were correct. If the player guesses correctly they win the game they should be congratulated and the game should end.
 #	 -	If they guess incorrectly, give the player some direction. If they guess too high let them know, if they guess too low, let them know.
 #	 - 	Don't forget to let your players know how many guesses they have left. Your game should say something like

@@ -22,8 +22,7 @@ puts "Welcome, player! HB has created the game, so sit back relax and enjoy!"
 
 puts "What is your name, per favore?"
 
-user_name=gets
-puts user_name
+user_name=gets.chomp
 
 puts "Hallo there, #{user_name}"
 
@@ -35,12 +34,11 @@ puts "Now, for the game-- you must guess the number I am thinking of between 1 a
 #	Functionality: 
 #	 -	Hard code the secret number. Make it a random number between 1 and 10.
 
-
 puts "What is your first guess?"
 user_guess = gets.chomp
 
 def secret_number_game(user_guess)
-	
+
 secret_number = 4
 
 	if user_guess < secret_number
@@ -50,9 +48,20 @@ secret_number = 4
 	else user_guess == secret_number
 		puts "Congratulations, you've guessed it!"
 	end	
+
+# 	count = 3
+
+# while count>1
+# 	puts "You have #{count} guesses left...use them wisely..."
+# 	count -=1
+# end
+# 	if count == 1
+# 		puts "Okay, last shot!"
+# 	end
 end
 
 puts secret_number_game(user_guess)
+
 
 # Hey guys-- this is where I'm at right now-- I'm going to keep workiong on it, but wanted to upload something- Heather Ball
 
