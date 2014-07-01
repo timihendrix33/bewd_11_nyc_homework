@@ -24,11 +24,16 @@ def check_number (number, guesses_left)
     elsif input == number
       puts "YOU GOT IT!!"
       guesses_left = 0
+
     end # input != number
 
   end # guesses_left > 0
+
+  if guesses_left == 0 && input != number
+    puts "Booo! The number was #{number}, thanks for playing."
+  end
+
   puts "Game Over."
-  # puts "You got it!"
 end # check_number
 
 puts "Random Number Game! Guess a number between 1 and 10. You have only 3 guesses to guess the correct number."
