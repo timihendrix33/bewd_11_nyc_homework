@@ -1,8 +1,4 @@
-
 magicnumber = 7;
- 
-# Keep looping, getting a value from the user, untli they have
-# selected the random number.
  
 begin
  
