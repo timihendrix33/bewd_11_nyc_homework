@@ -1,3 +1,5 @@
+#HW
+
 magicnumber = 7;
  
 begin
