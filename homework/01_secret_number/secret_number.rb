@@ -36,3 +36,55 @@
 #
 ###############################################################################
 
+def get_input
+	input=gets.chomp
+end
+
+#INTRO
+def welcome()
+	puts "Welcome to Kelly's guessing game!"
+	puts "What is your name?"
+	name = get_input
+	puts "Hi #{name}!"
+	puts "Here are the rules: guess a number I am thinking of between 1-10, you have three guesses. Good luck!"
+end
+
+def random_number()
+	secret_number = (10>1) ? 1+rand((10-1+1)) : 10+rand((1-10+1))
+	return secret_number
+end
+
+#Guess Response
+def guess_response(secret_number, guess)
+	if guess > secret_number
+		return "Too high!"
+	elsif guess < secret_number
+		return "Too low!"
+	else
+		return "You win! Thank you for playing!"
+	end
+	return answer
+end
+
+#RUN METHODS
+welcome
+secret_number=random_number
+#for testing: puts "#{secret_number}" 
+attempts=0
+while (attempts<3) 
+	puts "Enter your guess now. You have #{(3-attempts).to_s} guesses left."	
+	guess=get_input.to_i
+	if guess>0 && guess<=10
+		answer=guess_response(secret_number, guess)
+		puts answer
+		if answer=="You win! Thank you for playing!"
+			attempts=10
+		end
+	attempts = attempts+1
+	end
+end
+
+if (attempts == 3) && answer=="Too low!" or answer=="Too high!"
+	puts "Game over! The answer was #{secret_number}. Better luck next time!"
+end
+git 
