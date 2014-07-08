@@ -1,12 +1,12 @@
 require_relative 'lib/teams'
 
+
 require 'json'
 require 'rest-client'
 
+# model api call for ESPN
  # http://api.espn.com/:version/:resource/:method?apikey=:yourkey
 
-#Soccer news headlines call
-#espn_client = RestClient.get('http://api.espn.com/v1/sports/soccer/news/headlines?apikey=6rm42hyheg2795t9tpgrymmw')
 
 #FiFA World Cup teams call
 espn_client = RestClient.get('http://api.espn.com/v1/sports/soccer/fifa.world/teams?apikey=6rm42hyheg2795t9tpgrymmw')
@@ -29,18 +29,46 @@ end
 end
 end
 
-#puts @storage["Italy"]
+#defining an array so the check_news function will work
+@news_array = Array.new
+
+
 
 #define methods for program
+
+#this gets the team specific news
 def get_news
 	@espn_json_2 = JSON.load(RestClient.get("http://api.espn.com/v1/sports/soccer/fifa.world/teams/#{@storage[@user_input]}/news?apikey=6rm42hyheg2795t9tpgrymmw"))
 	@espn_json_2["headlines"].each do |x|
-		puts x["headline"]
-		puts "     " + x["secondaryDescription"]
-		puts ""
+		if x["secondaryDescription"] == nil
+				puts x["headline"]
+			else
+				puts x["headline"]	
+				puts "     " + x["secondaryDescription"]
+				puts ""
+			end
+		@news_array << x["headline"]
 	end
 end
 
+#this checks if there is team specific news and returns general FIFA news if there is not
+def check_news
+	if @news_array.empty?
+		puts "Sorry! It doesn't look like there is any news available for that team.\nHere's some general FIFA news:"
+		@espn_json_3 = JSON.load(RestClient.get("http://api.espn.com/v1/sports/soccer/fifa.world/news?apikey=6rm42hyheg2795t9tpgrymmw"))
+			@espn_json_3["headlines"].each do |x|
+			if x["secondaryDescription"] == nil
+				puts x["headline"]
+			else
+				puts x["headline"]	
+				puts "     " + x["secondaryDescription"]
+				puts ""
+			end
+		end
+end
+end
+
+#Checks if the user input is an actual World Cup team and prompts the user for a real team if it's not
 def check_user_input
 	loop do 
 		break if @storage.has_key?(@user_input)
@@ -50,33 +78,12 @@ def check_user_input
 end
 
 
-#HERE'S THE ACTUAL FLOW
-
+#Runs the program
 puts "Welcome to the World Cup News Finder!"
 puts "What team do you want to find news about?"
 @user_input = gets.chomp.downcase
 check_user_input
 get_news
-
-#note --> program errors out if secondaryDescription on get_news function does not exit for a news story... find way to check and fix
-
-
-
-
-#SCRATCH FLOW
-#welcome to the app
-#input team you'd like to search for
-#check if team is a world cup team
-	#if not, prompt to enter world cup team (include search if name is close?)
-	# if yes:
-#return ID for team name
-#insert ID into news API call
-#return ID news info
-
-
-#store "team" as object with hash for ID's
-
-
-
+check_news
 
 
