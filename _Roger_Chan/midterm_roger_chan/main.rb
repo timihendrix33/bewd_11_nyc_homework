@@ -14,6 +14,9 @@ require_relative 'shopping_cart'
 require_relative 'item'
 json_url = ""
 
+# Clear the console
+system "clear"
+
 # Create a shopping cart
 def create_shopping_cart
   puts "A new shopping cart has been created for you! \n \n"
