@@ -16,75 +16,10 @@
 # Here are some guidelines to building your game:
 #
 #	Intros
-<<<<<<< HEAD
-		
-		@guesses_remaining = 3
-
-		def guess(guess_number)
-
-			@guesses_remaining = @guesses_remaining - 1
-
-			if @guesses_remaining != 1
-				guess_plural = "guesses"
-			else
-				guess_plural = "guess"
-			end
-
-			guess_again = "you have #{@guesses_remaining} #{guess_plural} left. Try again:"
-
-
-
-			if guess_number > @number
-				if @guesses_remaining > 0
-					puts "too high, #{guess_again}" 
-					guess_number = gets.chomp.to_i
-					guess(guess_number)
-				else
-					puts "Game Over! The number was #{@number}"
-				end	
-			elsif guess_number < @number
-				if @guesses_remaining > 0
-					puts "too low, #{guess_again}"
-					guess_number = gets.chomp.to_i
-					guess(guess_number)
-				else
-					puts "Game Over! The number was #{@number}"					
-				end
-			else
-				puts "you win!"
-			end
-		end
-
-
-
-# 	-	Welcome the player to your game. Let them know who created the game. 
-# 		puts "Welcome to the secret number game"
-
-# #	  -	Ask for the player's name then personally greet them by printing to the screen, "Hi player_name!"
-		puts "What is your name?"
-		player_name = gets.chomp
-
-		puts "Hi, #{player_name} !"
-
-#	  -	Any good game will communicate the rules. Let the player know they must guess a number between 1 and 10 
-#		and that they only have 3 tries to do so.
-		puts "Guess a number between 1 and 10 in 3 tries to win."
-
-		@number = 7
-
-		puts "Guess 1:"
-
-		guess_number = gets.chomp.to_i
-
-		guess(guess_number)
-
-		
-=======
 # 	-	Welcome the player to your game. Let them know who created the game. 
 #	  -	Ask for the player's name then personally greet them by printing to the screen, "Hi player_name!"
 #	  -	Any good game will communicate the rules. Let the player know they must guess a number between 1 and 10 
 #		and that they only have 3 tries to do so.
->>>>>>> a5de4cf9cabc40ab5da732318393178054462447
 #
 #	Functionality: 
 #	 -	Hard code the secret number. Make it a random number between 1 and 10.
@@ -100,4 +35,93 @@
 # Remember to cast input from the Player into the appropriate data type.
 #
 ###############################################################################
+
+
+## DEFAULTS
+
+another_game = "y"
+wins = 0.00
+losses = 0.00
+available_tries = 3
+
+
+## DEFINE METHODS
+
+def welcome
+	puts "\n\nHi " + ENV['USER'] + "," +
+	"\n\nWelcome to The Guessing Game, by Alfie.\n\nThe Rules: \n\n1) I'm going to pick a number between 1 and 10. \n2) You've got three tries to guess it. \n\nReady? Here we go...\n\n"
+end
+
+def set_random_number()
+	secret_number = rand(1...10)
+	# puts "hint: #{secret_number}"
+	return secret_number
+end
+
+def get_guess(i)
+	puts "Guess #{i+1}:\n\n"
+	guess = gets.chomp.to_i
+	return guess
+end
+
+def check_guess(secret_number, guess)
+	if guess > secret_number
+		response = "Too big!"
+	elsif guess < secret_number
+		response = "Too small!"
+	elsif guess == secret_number
+		response = "Right on!"
+	end
+	return response
+end
+
+def play_game
+	welcome
+	secret_number = set_random_number.to_i 
+	i = 0
+	response = ""
+	while i < 3 && response != "Right on!"
+		guess = get_guess(i).to_i
+		response = check_guess(secret_number, guess)
+		puts response 
+		if i < 2 then puts "I'll give you #{2-i} more tries.\n\n"
+		else puts "I'll give you 1 more try.\n\n"
+		end
+		i +=1
+	end
+	return response, secret_number
+end
+
+def show_stats(wins, losses)
+	win_loss_ratio = ((wins/(wins+losses))*100).to_i
+	play_count = (wins + losses).to_i
+	puts "You've played #{play_count} games \n"
+	puts "Your win/loss ratio is " + win_loss_ratio.to_i.to_s + "%\n\n"
+end
+
+def prompt_play_again
+	puts "Care to play again? (y/n)"
+	another_game = gets.chomp
+	return another_game
+end
+
+
+## RUN GAME
+
+while another_game == "y"
+	game_outcome = play_game
+	if game_outcome[0] == "Right on!"
+		wins += 1
+		puts "That's a win."
+	else 
+		losses += 1
+		puts "Nice try. I was thinking of the number #{game_outcome[1]}.\n"
+	end 
+	show_stats(wins, losses) 
+	another_game = prompt_play_again
+end
+
+## BYE
+
+puts "Goodbye!"
 
