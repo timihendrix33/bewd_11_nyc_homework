@@ -14,23 +14,33 @@ class Connection
 ## The address in configure is broken into baseurl (api.twitter.com) and then the path/query.
 ## id =>1 for trends around the world. For decision "t" the user is asked the keyword they want to search on and the number of tweets
 
+
 def type 
-	if $decision =="t"
-		puts "Ok cool, what keyword would you like to search on?"
-		@question= gets.chomp
-		puts "Ok, and how many tweets?"
-		@count_tweets= gets.chomp
-		@path    = "/1.1/search/tweets.json"
-		@query   = URI.encode_www_form(
-	  		"q" => "#{@question}",
-	  		"count" => "#{@count_tweets}",)
-	elsif $decision == "tr"
-		puts "Ok, here are the latest trends from around the world!"
-		@path = "/1.1/trends/place.json"
-		@query   = URI.encode_www_form(
-   			"id" => "1",)
-	else
-		"reinput please"
+	if $decision !="t" and $decision!="tr"
+		puts "Please re-enter your query: tweets(t) or trends(tr)!"
+		$decision= gets.chomp
+	end
+	if $decision =="t" or $decision =="tr"
+		# if $decision !="t" and $decision !="tr"
+		# 	puts "Please re-enter your query"
+		# 	$decision= gets.chomp
+		if $decision=="t"
+			puts "Ok cool, what keyword would you like to search on?"
+			@question= gets.chomp
+			puts "Ok, and how many tweets?"
+			@count_tweets= gets.chomp
+			@path    = "/1.1/search/tweets.json"
+			@query   = URI.encode_www_form(
+		  		"q" => "#{@question}",
+		  		"count" => "#{@count_tweets}",)
+		elsif $decision == "tr"
+			puts "Ok, here are the latest trends from around the world!"
+			@path = "/1.1/trends/place.json"
+			@query   = URI.encode_www_form(
+	   			"id" => "1",)
+		else
+			puts "failure...."
+		end
 	end
 end
 
@@ -69,51 +79,10 @@ def configure
 			puts "success"
 			$tweets= JSON.parse(response.body)
 		else
-			puts "please reinput"
+			puts "Your connection failed!"
+			puts "Please type in your decision"
+			$decision= gets.chomp
 		end
 end
 
-## Ok, until I figure out how to use the Trends and Tweets classes I'm stuck with this
-## I use hashes and arrays to output the information from the Twitter API based on the user's input
-## If the user types in "tr" they will receive a list of the latest worldwide trends
-## If the user types in "t" they will be prompted for a keyword and the amount of tweets. 
-
-def output
-	if $decision =="tr"
-		@tweet_array = []
-		$tweets[0]["trends"].each do |tweet|
-	      name= tweet["name"]
-	      query_trend= tweet["query"]
-	      promoted_content= tweet["promoted_content"]
-	      tweet_hash= {name:name, query_trend:query_trend, promoted_content:promoted_content}
-	      @tweet_array << tweet_hash
-	  	end
-
-		   @count=1
-		   @tweet_array.each do |simple|
-		     puts "#{@count}. TREND:#{simple[:name]} QUERY:#{simple[:query_trend]} PROMOTED:#{simple[:promoted_content]}"
-		     @count +=1
-		    end
-	elsif $decision=="t"
-	    @tweet_array = []
-		  $tweets["statuses"].each do |tweet|
-		  id= tweet["user"]["screen_name"]
-		  text=tweet["text"]
-		  location= tweet["user"]["location"]
-		  followers_count= tweet["user"]["followers_count"]
-		  twitter_hash= {text:text, id: id, location: location, followers_count: followers_count}
-		  @tweet_array << twitter_hash
-		 end
-	  	
-		  puts "Here are you latest tweets\n"
-		  @count=1
-		  @tweet_array.each do |simple|
-		  	puts "#{@count}. ID:#{simple[:id]} | TWEET:#{simple[:text]} | LOCATION:#{simple[:location]} | FOLLOWERS:#{simple[:followers_count]}"
-		  	@count +=1
-			end
-
-	else
-	 puts  "Not sure"
-	end
-end
 end
