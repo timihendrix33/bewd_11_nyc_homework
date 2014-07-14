@@ -1,14 +1,12 @@
 require 'open-uri'
 
-
 puts "do you like cats? (Yes or No)"
 cats = gets.chomp
  if cats == 'Yes'
-# Open http://placekitten.com/ for reading on line 4!
+
 kittens = open('http://placekitten.com/')
 body = kittens.read[559, 441]
 
-# Add your puts statement below!
 puts body
 puts "See the computer Cat Attack!"
 
