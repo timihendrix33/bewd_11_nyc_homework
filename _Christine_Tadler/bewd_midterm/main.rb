@@ -8,7 +8,7 @@ def get_weather
 
   # prompt the user again if they don't type an answer
   while city.empty?
-    puts "I SAID, what CITY are you in."
+    puts "I SAID, tell me what CITY you're in."
     city = gets.chomp
   end
   
@@ -26,7 +26,7 @@ def get_weather
 
   # use the cod variable to test if the user entered a real city
   if weather_cod == "404"
-    puts "That's not a city! Try again"
+    puts "That's not a city! Try again. Be serious this time."
     get_weather
   else
     
@@ -41,5 +41,5 @@ def get_weather
   end
 end
 
-puts "What city are you in?"
+puts "Looking for weather information? Tell me what city you're in."
 get_weather
