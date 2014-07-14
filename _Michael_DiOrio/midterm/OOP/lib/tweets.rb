@@ -9,8 +9,8 @@ class Tweets
   end
 
 def create ## trying to create the Tweets objects via iteration. $tweets is the json.parse from the connection. "t" means the user selected trends
-  puts "Here are the Tweets you requested!"
   if $decision=="t"
+    puts "Here are the Tweets you requested!"
     @count=0
       $tweets["statuses"].each do |tweet|
       @id= tweet["user"]["screen_name"]

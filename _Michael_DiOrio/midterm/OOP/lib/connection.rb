@@ -34,7 +34,6 @@ def type
 		  		"q" => "#{@question}",
 		  		"count" => "#{@count_tweets}",)
 		elsif $decision == "tr"
-			puts "Ok, here are the latest trends from around the world!"
 			@path = "/1.1/trends/place.json"
 			@query   = URI.encode_www_form(
 	   			"id" => "1",)
@@ -80,8 +79,6 @@ def configure
 			$tweets= JSON.parse(response.body)
 		else
 			puts "Your connection failed!"
-			puts "Please type in your decision"
-			$decision= gets.chomp
 		end
 end
 
