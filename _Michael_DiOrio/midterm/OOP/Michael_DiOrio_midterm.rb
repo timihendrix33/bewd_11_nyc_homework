@@ -13,7 +13,6 @@ puts "Would you like to see the tweet trends (tr) worldwide or the latest tweets
 connection_open= Connection.new(gets.chomp) ##starts
 connection_open.type ## tweets or trends url path and input variables such as keyword/counts
 connection_open.configure ## connect to twitter api
-#connection_open.output ## output data
 
 #### Testing Trends Class
 test= Trends.new

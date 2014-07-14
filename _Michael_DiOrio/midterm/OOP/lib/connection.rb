@@ -48,11 +48,10 @@ end
 ## line 67 is important since $tweets is the info from the API. Is there a better way to do this?
 
 def configure
-	# inset /1.1 types
+	# insert /1.1 types
 	baseurl = "https://api.twitter.com"
 	address = URI("#{baseurl}#{@path}?#{@query}")
 	request = Net::HTTP::Get.new address.request_uri
-
 
 	# Set up HTTP.
 	http             = Net::HTTP.new address.host, address.port
