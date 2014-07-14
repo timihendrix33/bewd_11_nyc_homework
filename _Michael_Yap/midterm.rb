@@ -1,4 +1,15 @@
 
+# Office Hours Notes
+# ==============================================================================
+# Calculate the current time, offer 24 hrs forecast
+# Break up the program in separate files
+# For lines 32 and on, put in a separate file
+# In the main rb file, call the class
+# Create a git branch, to put the working program into a branch
+# git checkout -b name-of-branch
+# git checkout name-of-branch
+# git branch
+
 # Assignment
 # ==============================================================================
 
@@ -15,7 +26,7 @@
 # Choose a spot
 # Provide a report
 
-# Third Party
+# Require
 # ==============================================================================
 
 # Require library of methods from json
@@ -36,16 +47,30 @@ def build_spots(county)
 
 	@spots = Array.new(county.length) {Hash.new}
 
-	i = 0
+	# ORIGINAL LOOP
+
+	# This seems weird
+	# i = 0
+
+	# county.each do |spot|
+		# Store the spot name and ID
+		# @spots[i][:spot_name] = spot["spot_name"]
+		# @spots[i][:spot_id] = spot["spot_id"]
+		# i += 1
+	# end
+
+	# ALTERNATE LOOP
 
 	county.each do |spot|
-		# Store the spot name and ID
-		@spots[i][:spot_name] = spot["spot_name"]
-		@spots[i][:spot_id] = spot["spot_id"]
-		i += 1
-	end
+	
+	# Create a temporary hash to store the spot_name and spot_id, push the hash to the array
+	# Re-initialize the hash every time the loop is run
+	tmp_spot = Hash.new
+	tmp_spot[:spot_name] = spot["spot_name"]
+	tmp_spot[:spot_id] = spot["spot_id"]
+	@spots << tmp_spot
 
-	# puts @spots
+	end
 
 end
 
@@ -90,12 +115,10 @@ end
 puts "\n"
 
 loop do 
-	print "Choose a surf spot: "
+	print "Enter a surf spot: "
 	@chosen_spot = get_input
 	if @chosen_spot.empty?
 	    puts "Oops, try again."
-  elsif @chosen_spot.is_a? Integer
-    puts "Oops, try again."
   else
     break
   end
@@ -111,5 +134,7 @@ puts "\n"
 @spot_forecast.each do |hour|
 	puts "#{hour["hour"]} Wave size: #{hour["size"]}, Swell: #{hour["shape_detail"]["swell"]}"
 end
+
+
 
 
