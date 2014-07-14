@@ -1,3 +1,4 @@
+# RIGHT NOW THIS CODE ONLY WORKS FOR 1851, I THINK BECAUSE OF SOME SORT OF STRANGENESS IN THE API, WILL INVESTIGATE AND UPDATE
 
 require 'json'
 require 'rest-client'
@@ -47,6 +48,7 @@ freq = words.inject(Hash.new(0)) { |key, value|
 	key[value] += 1
 	key 
 }
+
 
 puts freq.sort_	by{|key, value| value}
 
