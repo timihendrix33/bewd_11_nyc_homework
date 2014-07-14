@@ -10,6 +10,12 @@ require 'twitter'
   config.access_token_secret = "EkA6XifdKUWTmbo1748xjRatmQU9AQyoJVu1mGZeHCX56"
 end
 
+
+#===============================================================================
+#===============================================================================
+
+
+
 def search_hashtags(hashtag)
   @client.search("##{hashtag}", :result_type => "recent").take(10).collect do |tweet|
     puts "@#{tweet.user.screen_name}-- #{tweet.text}"
