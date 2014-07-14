@@ -12,8 +12,10 @@ def get_weather
     city = gets.chomp
   end
   
-  # grab from openweathermap and cram into a variable
+  # create variable from openweathermap url
   weather_url = "http://api.openweathermap.org/data/2.5/weather"
+  
+  # add user input as url parameter to get the full city url
   weather_client = RestClient.get(weather_url, {params: {q: city}})
   
   # parse into json object
