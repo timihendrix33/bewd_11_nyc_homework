@@ -26,13 +26,14 @@
 # Choose a spot
 # Provide a report
 
-# Require
+# Requires
 # ==============================================================================
 
 # Require library of methods from json
 require 'json'
 # Require library of methods from rest-client
 require 'rest-client'
+require_relative 'forecast'
 
 # The San Francisco county feed
 @county_san_francisco_json = RestClient.get('http://api.spitcast.com/api/county/spots/san-francisco/')
@@ -45,8 +46,8 @@ end
 
 def build_spots(county)
 
-	@spots = Array.new(county.length) {Hash.new}
-
+	@spots = Array.new
+	
 	# ORIGINAL LOOP
 
 	# This seems weird
@@ -69,31 +70,7 @@ def build_spots(county)
 	tmp_spot[:spot_name] = spot["spot_name"]
 	tmp_spot[:spot_id] = spot["spot_id"]
 	@spots << tmp_spot
-
-	end
-
-end
-
-def get_forecast(chosen_spot) 
-
-	if chosen_spot == "Fort Point"
-		@spot_forecast_json =  RestClient.get('http://api.spitcast.com/api/spot/forecast/113/')
-		@spot_forecast = JSON.load(@spot_forecast_json)
-	elsif chosen_spot == "Eagles Point"
-		@spot_forecast_json =  RestClient.get('http://api.spitcast.com/api/spot/forecast/649/')
-		@spot_forecast = JSON.load(@spot_forecast_json)
-	elsif chosen_spot == "Deadmans"
-		@spot_forecast_json =  RestClient.get('http://api.spitcast.com/api/spot/forecast/648/')
-		@spot_forecast = JSON.load(@spot_forecast_json)
-	elsif chosen_spot == "Kellys Cove"
-		@spot_forecast_json =  RestClient.get('http://api.spitcast.com/api/spot/forecast/697/')
-		@spot_forecast = JSON.load(@spot_forecast_json)
-	elsif chosen_spot == "North Ocean Beach"
-		@spot_forecast_json =  RestClient.get('http://api.spitcast.com/api/spot/forecast/114/')
-		@spot_forecast = JSON.load(@spot_forecast_json)
-	elsif chosen_spot == "South Ocean Beach"
-		@spot_forecast_json =  RestClient.get('http://api.spitcast.com/api/spot/forecast/117/')
-		@spot_forecast = JSON.load(@spot_forecast_json)
+	puts "Size of @spots: #{@spots.length}"
 	end
 
 end
@@ -101,7 +78,7 @@ end
 build_spots(@county_san_francisco)
 
 
-puts "Welcome to the Ruby version of Spitcast: the best forecast for surf spots in the San Francisco Bay Area, including"
+puts "Welcome to the Ruby version of Spitcast: the best forecast for surf spots in the San Francisco Bay Area, including:"
 
 puts "\n"
 
@@ -116,24 +93,17 @@ puts "\n"
 
 loop do 
 	print "Enter a surf spot: "
-	@chosen_spot = get_input
-	if @chosen_spot.empty?
+	@user_chosen_spot = get_input
+	if @user_chosen_spot.empty?
 	    puts "Oops, try again."
   else
     break
   end
 end
 
-get_forecast(@chosen_spot)
+forecast = Forecast.new(@user_chosen_spot)
+forecast.get_forecast
 
-puts "\n"
-puts "Your forecast for #{@spot_forecast[0]["spot_name"]} on #{@spot_forecast[0]["date"]}:"
-
-puts "\n"
-
-@spot_forecast.each do |hour|
-	puts "#{hour["hour"]} Wave size: #{hour["size"]}, Swell: #{hour["shape_detail"]["swell"]}"
-end
 
 
 
