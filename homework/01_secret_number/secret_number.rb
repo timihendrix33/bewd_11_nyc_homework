@@ -891,3 +891,36 @@ puts "Hi #{player_name}! What number am I thinking of? You have three guesses."
 end
 
 
+
+
+
+puts "Hello player, I created this game!"
+puts "Please give me your name?" 
+name = gets.chomp
+
+puts "Hello, " + name + " . "
+
+puts "these are the rules of the game: \n Please pick a number between 1-10 \n You will have 3 tries to do so"
+
+#	Functionality: 
+#	 -	Hard code the secret number. Make it a random number between 1 and 10.
+	secret_number = 4
+	counter = 3
+	while 
+		counter != 0
+
+#	 - 	Ask the user for their guess.
+		puts "Please give me your guess!"
+		guess = gets.chomp
+#	 -	Verify if they were correct. If the player guesses correctly they win the game they should be congratulated and the game should end.
+		if guess == secret_number
+			puts "You guessed correctly! Yay! :)"
+		else
+			counter -= 1
+			puts "You did not guess correctly! :("
+			puts "You have #{counter} guesses left!"
+	#	 -	If they guess incorrectly, give the player some direction. If they guess too high let them know, if they guess too low, let them know.
+		end
+	end
+
+
