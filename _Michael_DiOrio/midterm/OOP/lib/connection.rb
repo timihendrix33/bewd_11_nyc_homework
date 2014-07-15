@@ -16,14 +16,11 @@ class Connection
 
 
 def type 
-	if $decision !="t" and $decision!="tr"
-		puts "Please re-enter your query: tweets(t) or trends(tr)!"
+	if $decision !="t" and $decision !="tr" and $decision !="w"
+		puts "Please re-enter your query: tweets(t) or trends(tr) or word cloud (w)!"
 		$decision= gets.chomp
 	end
-	if $decision =="t" or $decision =="tr"
-		# if $decision !="t" and $decision !="tr"
-		# 	puts "Please re-enter your query"
-		# 	$decision= gets.chomp
+	if $decision =="t" or $decision =="tr" or $decision =="w"
 		if $decision=="t"
 			puts "Ok cool, what keyword would you like to search on?"
 			@question= gets.chomp
@@ -37,6 +34,11 @@ def type
 			@path = "/1.1/trends/place.json"
 			@query   = URI.encode_www_form(
 	   			"id" => "1",)
+		elsif $decision == "w"
+			@path = "/1.1/search/tweets.json"
+			@query   = URI.encode_www_form(
+		  		"q" => "#",
+		  		"geocode" => "37.781157,-122.398720,10mi",)
 		else
 			puts "failure...."
 		end

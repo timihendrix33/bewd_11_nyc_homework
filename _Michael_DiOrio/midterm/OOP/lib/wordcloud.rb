@@ -6,7 +6,7 @@ def initialize
 end
 
 def cloud
-	if $decision=="t"
+	if $decision=="w"
 	    @tweet_array = []
 		  $tweets["statuses"].each do |tweet|
 		  @text=tweet["text"]
@@ -14,6 +14,7 @@ def cloud
 		  end
 	else
 	end
+	if $decision=="w"
 		words= @tweet_array.join(" ")
 		words2= words.split(" ")
 		frequencies= Hash.new(0)
@@ -23,6 +24,7 @@ def cloud
 		frequencies.each do |name, count|
    		puts name + " " + count.to_s
 		end
+	end
 
 end
 end
