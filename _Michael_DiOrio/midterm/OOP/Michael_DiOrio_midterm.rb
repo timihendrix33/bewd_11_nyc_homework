@@ -23,7 +23,7 @@ test.create
 test2= Tweets.new
 test2.create
 
-### testing wordcloud. This only works if you select Tweets(t)! Uncomment to run
+### testing wordcloud.
 
 a= Cloudy.new
 a.cloud

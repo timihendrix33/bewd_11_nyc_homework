@@ -8,8 +8,8 @@ class Trends
   end
 
   def create ## trying to create the Trends objects via iteration. $tweets is the json.parse from the connection. "tr" means the user selected trends
-      puts "Here are the Trends you requested!"
      if $decision =="tr"
+      puts "Here are the Trends you requested!"
       @count= 0
       $tweets[0]["trends"].each do |tweet|
         @name= tweet["name"]

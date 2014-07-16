@@ -36,3 +36,42 @@
 #
 ###############################################################################
 
+
+	def game
+
+	puts "Welcome Player! Mike D created this game!"
+	puts "What is your name so I don't have to call you player?"
+	name= gets.chomp
+	puts "Hi #{name}!"
+	puts "Just so you are aware #{name} you must guess a number between 1 and 10 and you will only have THREE tries"
+
+	count =3
+	special_number = 3
+
+	while count !=0
+		puts "So #{name} what is your guess?"
+		player_answer = gets.to_i
+
+		if (player_answer != special_number) && (count !=1)
+			count -=1
+				if (player_answer) > (special_number)
+					puts "You guessed too high!"
+				else
+					puts "You guessed too low!"
+				end
+
+			puts "Guess again..you only have #{count} guesses left"
+
+		elsif (player_answer != special_number) && (count == 1)
+			puts "You lost!!"
+			puts "The secret number was #{special_number}"
+			return
+		else
+			puts "congrats!"
+		end
+	end
+end
+
+game
+
+

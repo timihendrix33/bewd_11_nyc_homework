@@ -37,8 +37,9 @@ def type
 		elsif $decision == "w"
 			@path = "/1.1/search/tweets.json"
 			@query   = URI.encode_www_form(
-		  		"q" => "#",
-		  		"geocode" => "37.781157,-122.398720,10mi",)
+		  		"q" => "",
+		  		"geocode" => "37.781157,-122.398720,10mi",
+		  		"count" => "5")
 		else
 			puts "failure...."
 		end
