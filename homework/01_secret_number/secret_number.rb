@@ -997,6 +997,10 @@ git
 #
 #	Intros
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7fa28fada8cd0261bdb0a77fd7fd8df36e8b4cb7
 		
 		@guesses_remaining = 3
 
@@ -1036,8 +1040,11 @@ git
 		end
 
 
+<<<<<<< HEAD
 =======
 >>>>>>> blah
+=======
+>>>>>>> 7fa28fada8cd0261bdb0a77fd7fd8df36e8b4cb7
 
 # 	-	Welcome the player to your game. Let them know who created the game. 
 # 		puts "Welcome to the secret number game"
@@ -1050,6 +1057,7 @@ git
 
 #	  -	Any good game will communicate the rules. Let the player know they must guess a number between 1 and 10 
 #		and that they only have 3 tries to do so.
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -1092,6 +1100,19 @@ git
 		end
 
 
+=======
+		puts "Guess a number between 1 and 10 in 3 tries to win."
+
+		@number = 7
+
+		puts "Guess 1:"
+
+		guess_number = gets.chomp.to_i
+
+		guess(guess_number)
+
+		
+>>>>>>> 7fa28fada8cd0261bdb0a77fd7fd8df36e8b4cb7
 
 # 	-	Welcome the player to your game. Let them know who created the game. 
 # 		puts "Welcome to the secret number game"
@@ -1104,7 +1125,63 @@ git
 
 #	  -	Any good game will communicate the rules. Let the player know they must guess a number between 1 and 10 
 #		and that they only have 3 tries to do so.
+<<<<<<< HEAD
 >>>>>>> blah
+=======
+
+
+		
+		@guesses_remaining = 3
+
+		def guess(guess_number)
+
+			@guesses_remaining = @guesses_remaining - 1
+
+			if @guesses_remaining != 1
+				guess_plural = "guesses"
+			else
+				guess_plural = "guess"
+			end
+
+			guess_again = "you have #{@guesses_remaining} #{guess_plural} left. Try again:"
+
+
+
+			if guess_number > @number
+				if @guesses_remaining > 0
+					puts "too high, #{guess_again}" 
+					guess_number = gets.chomp.to_i
+					guess(guess_number)
+				else
+					puts "Game Over! The number was #{@number}"
+				end	
+			elsif guess_number < @number
+				if @guesses_remaining > 0
+					puts "too low, #{guess_again}"
+					guess_number = gets.chomp.to_i
+					guess(guess_number)
+				else
+					puts "Game Over! The number was #{@number}"					
+				end
+			else
+				puts "you win!"
+			end
+		end
+
+
+
+# 	-	Welcome the player to your game. Let them know who created the game. 
+# 		puts "Welcome to the secret number game"
+
+# #	  -	Ask for the player's name then personally greet them by printing to the screen, "Hi player_name!"
+		puts "What is your name?"
+		player_name = gets.chomp
+
+		puts "Hi, #{player_name} !"
+
+#	  -	Any good game will communicate the rules. Let the player know they must guess a number between 1 and 10 
+#		and that they only have 3 tries to do so.
+>>>>>>> 7fa28fada8cd0261bdb0a77fd7fd8df36e8b4cb7
 		puts "Guess a number between 1 and 10 in 3 tries to win."
 
 		@number = 7
@@ -1117,9 +1194,13 @@ git
 
 		
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> blah
+=======
+
+>>>>>>> 7fa28fada8cd0261bdb0a77fd7fd8df36e8b4cb7
 #
 #	Functionality: 
 #	 -	Hard code the secret number. Make it a random number between 1 and 10.
