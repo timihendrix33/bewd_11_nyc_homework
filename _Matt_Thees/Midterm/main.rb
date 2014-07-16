@@ -17,7 +17,7 @@ end
 
 
 def search_hashtags(hashtag)
-  @client.search("##{hashtag}", :result_type => "recent").take(10).collect do |tweet|
+  @client.search("##{hashtag} -rt", :result_type => "recent").take(10).collect do |tweet|
     puts "@#{tweet.user.screen_name}-- #{tweet.text}"
     puts "--------"
   end
