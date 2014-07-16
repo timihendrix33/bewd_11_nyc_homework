@@ -39,7 +39,7 @@ def type
 			@query   = URI.encode_www_form(
 		  		"q" => "",
 		  		"geocode" => "37.781157,-122.398720,10mi",
-		  		"count" => "5")
+		  		"count" => "99")
 		else
 			puts "failure...."
 		end

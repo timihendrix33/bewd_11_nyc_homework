@@ -17,16 +17,17 @@ def cloud
 	if $decision=="w"
 		puts "Here is your word cloud!"
 		words= @tweet_array.join(" ")
+		#puts @tweet_array
 		words2= words.split(" ")
 		frequencies= Hash.new(0)
 		words2.each { |word| frequencies[word] +=1 }
 		frequencies = frequencies.sort_by {|word, count| count }
 		frequencies.reverse!
 		frequencies.each do |name, count|
-   		if count >10
+			if count >8
    			puts name + " " + count.to_s
    		end
-		end
+   	end
 	end
 
 end
