@@ -7,13 +7,15 @@ class RockPaperScissorsController < ApplicationController
     @user_choice = params[:id]
 
     if @computer_choice == "rock" && @user_choice == "paper"
-      @msg = "You Win"
+      @msg = "You Win!"
     elsif @computer_choice == "paper" && @user_choice == "scissors"
-      @msg = "You Win"
+      @msg = "You Win!"
     elsif @computer_choice == "scissors" && @user_choice == "rock"
-      @msg = "You Win"
+      @msg = "You Win!"
+    elsif @computer_choice == @user_choice
+      @msg = "We Tied.. Lame"
     else
-      @msg = "You Lose"
+      @msg = "You Lose!"
     end
   end
 end
