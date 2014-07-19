@@ -9,9 +9,14 @@ class Question
 	end
 
 	def view_tweets
-		puts "-------------#{query_term} results ------"
-		@tweet_hash.each do |tweet|
-			puts "#{tweet.id} ... #{tweet.author}... #{tweet.place}...#{tweet.text}"
+		count = 1
+		puts ""
+		puts "-------------#{query_term} results ------------"
+		@tweets.each do |tweet|
+			puts "#{count}. #{tweet.author}(From: #{tweet.place} with #{tweet.followers_count} followers) said\" #{tweet.text}\""
+			puts ""
+			puts "---"
+			count += 1
 		end
 	end
 end

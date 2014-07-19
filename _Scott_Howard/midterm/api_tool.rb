@@ -14,12 +14,18 @@ require 'twitter'
 require_relative 'lib/tweet'
 require_relative 'lib/question'
 
+key = ENV['twitter_api_key']
+secret = ENV['twitter_api_secret']
+
 # Application-only Authentication: 
 # from: https://github.com/sferik/twitter/blob/master/examples/Configuration.md
 config = {
-  :consumer_key    => "3AGoAUh5KfXnnUrenbk40SPEo",
-  :consumer_secret => "CQPFXblVgEayPSjPyIHWJNoYAvoMGD3uuzdILq27tryt2V9Hqi"
+  :consumer_key    => key,
+  :consumer_secret => secret
 	}
+
+## The below line will display the key/secret for problem solving.
+# puts config
 client = Twitter::REST::Client.new(config)
 
 
@@ -41,13 +47,17 @@ question = create_question(client)
 #retrieve the info from the Twitter API
 tweet_hash = client.search("to:justinbieber #{question.query_term}", :result_type => "recent", :lang => "en").take(question.query_return_count)
 
-count = 0
-0.upto(tweet_hash.length) do
-	id = tweet_hash[count]
-	author = tweet_hash[count]["user"]
-	count += 1
+# puts tweet_hash[0].methods
 
-	puts "#{id} ... #{author}"
+0.upto(tweet_hash.length - 1) do |item|
+	author = tweet_hash[item].user.screen_name
+	text = tweet_hash[item].text
+	followers_count = tweet_hash[item].user.followers_count
+	place = tweet_hash[item].place
+	# puts "#{author} (followers:#{followers_count})....#{text}"
+	# puts "------------------------"
+	tweet = Tweet.new(author, followers_count, place, text)
+	question.tweets[item] = tweet
 end
 
 # 0.upto(tweet_hash.length) do |item|
@@ -63,8 +73,8 @@ end
 puts "ready to view tweets? (y/n)"
 response = gets.strip
 
-if response == 'y'
-	query.view_tweets
+if response.downcase == 'y'
+	question.view_tweets
 else
 	puts "thanks!"
 end

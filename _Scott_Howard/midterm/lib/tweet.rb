@@ -1,10 +1,10 @@
 #Tweet class.
 class Tweet
-	attr_accessor :id, :author,:place, :text
+	attr_accessor :author, :followers_count, :place, :text
 
-	def initialize (id, author, place, text)
-		@id = id
+	def initialize (author, followers_count, place, text)
 		@author = author
+		@followers_count = followers_count
 		@place = place
 		@text = text
 	end
