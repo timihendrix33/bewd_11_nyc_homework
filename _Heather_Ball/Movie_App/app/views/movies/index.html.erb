@@ -5,6 +5,8 @@
 Please see our movie selection below, and start picking your fave titles!</p>
 
 <ul>
-	<li><span><%= @movies.each do |title| puts "#{title}\n" end%> </span></li>
+	<% @movies.each do |movie| %>
+	<li><span><%= movie.title %> </span></li>
+	<%end%>
 </ul>
  
