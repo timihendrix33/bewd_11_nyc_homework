@@ -66,6 +66,12 @@ guesses = 2
 	end
 end
 
+# Hi Mike, thanks for your helpful comments! I think I have it for the most part,
+#but there are still some kinks that I'm a bit stumped on-- will try to snag you during
+#lab to hopefully sort out.
+
+
+
 
 #	 -	Verify if they were correct. If the player guesses correctly they win the game they should be congratulated and the game should end.
 #	 -	If they guess incorrectly, give the player some direction. If they guess too high let them know, if they guess too low, let them know.
