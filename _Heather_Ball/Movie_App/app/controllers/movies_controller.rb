@@ -1,15 +1,16 @@
 class MoviesController < ApplicationController
 	attr_accessor :title, :description, :year_released
 
-    def initialize #(title, description)
-      @title = title
-      @description = description
-      @year_released = year_released
-    end
+    # def initialize #(title, description)
+    #   @title = title
+    #   @description = description
+    #   @year_released = year_released
+    # end
 
   def index
-
     @movies = Movie.all
+
+    # POSSIBLE? @movies = Movie.search_for(title[:title])
 
     # { |e|  }
     # Movie.find_each do |title, description, year|
