@@ -23,6 +23,7 @@ count = menus["stats"]["count"]
 
 puts "There are " + count.to_s + " menus from " + year.to_s
 
+words = []
 # Creates objects for all menus from the given year, creates an array of all of the words used in a menu title for a given year
 menus["menus"].each do |menu|
 	id = menu["id"]
@@ -50,6 +51,6 @@ freq = words.inject(Hash.new(0)) { |key, value|
 }
 
 
-puts freq.sort_	by{|key, value| value}
+puts freq.sort_by{|key, value| value}
 
 
