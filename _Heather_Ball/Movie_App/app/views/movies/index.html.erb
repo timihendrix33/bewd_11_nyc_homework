@@ -1,0 +1,12 @@
+<h1>Welcome to Rrrrrretflix!</h1>
+<br>
+<p>The <strong>only</strong> place to find your favorite titles!</p>
+<br>
+Please see our movie selection below, and start picking your fave titles!</p>
+
+<ul>
+	<% @movies.each do |movie| %>
+	<li><span><%= movie.title %> </span></li>
+	<%end%>
+</ul>
+ 
