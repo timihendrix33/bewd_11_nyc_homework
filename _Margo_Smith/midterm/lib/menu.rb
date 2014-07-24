@@ -14,11 +14,4 @@ class Menu
     @dishes = []
   end
 
-  def is_occupied?
-    @renter != nil
-  end
-
-  def to_s
-    "Apartment: #{@name} \n sqft: #{@sqft} \t Bedrooms: #{@num_bedrooms} \t Bathrooms: #{@num_bathrooms}"
-  end
 end
