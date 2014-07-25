@@ -5,11 +5,12 @@ class UrlsController < ApplicationController
 	end
 
 	def create
-		def generate_hash
-			hash = rand(10000)
-		end
-		
+
 	    @url = Url.new(safe_url_params)
+
+	    @url.hash_code = rand(10000)
+
+
 	    if @url.save
 	      redirect_to url_path(@url)
 	    else
