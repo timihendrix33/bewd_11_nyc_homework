@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140724005027) do
+ActiveRecord::Schema.define(version: 20140726175825) do
 
   create_table "urls", force: true do |t|
     t.string   "link"
-    t.integer  "hash_code",  limit: 255
+    t.string   "hash_code"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
