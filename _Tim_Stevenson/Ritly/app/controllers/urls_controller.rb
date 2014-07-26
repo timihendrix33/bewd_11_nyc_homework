@@ -23,7 +23,7 @@ class UrlsController < ApplicationController
 	end
 
 	def show
-
+		load_url
 	end
 
 	def redirectors
@@ -35,8 +35,12 @@ class UrlsController < ApplicationController
 	end
 
   private 
-  def safe_shirt_params
+  def safe_url_params
     params.require('url').permit(:link, :hash_code)
+  end
+
+  def load_url
+  	@url = Url.find_by id: params[:id]
   end
 
 end
