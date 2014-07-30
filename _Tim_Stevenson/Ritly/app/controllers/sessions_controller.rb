@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
 	      redirect_to urls_path
 	    else
 	      flash[:error] = "Invalid username or password."
-	      redirect_to new_session_path
+	      redirect_to urls_path
 	    end		 
 	end
 

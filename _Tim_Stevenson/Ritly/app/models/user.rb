@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  validates :username, :password, presence: true
+  validates :username, uniqueness: true
+
+  	
 	def self.create_with_password(username, password)
 		hash = password_hash(password)
 		User.create(username: username, password: password)
