@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   	
 	def self.create_with_password(username, password)
 		hash = password_hash(password)
-		User.create(username: username, password: password)
+		User.create(username: username, password: hash)
 	end
 
 	def self.find_authenticated_user(username, password)
