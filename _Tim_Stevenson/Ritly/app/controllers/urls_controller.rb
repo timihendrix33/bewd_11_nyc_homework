@@ -5,10 +5,8 @@ class UrlsController < ApplicationController
 	end
 
 	def create
-
-	    @url = Url.new(safe_url_params)
-
-	    @url.hash_code = SecureRandom.urlsafe_base64(8)
+		@url = Url.new_with_hash(safe_url_params)
+	    # @url = Url.new(safe_url_params)
 
 	    if @url.save
 	      redirect_to url_path(@url)
