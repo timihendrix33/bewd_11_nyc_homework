@@ -16,11 +16,18 @@ RSpec.describe Url, :type => :model do
 
   	it "gives url hash" do
   		url = Url.first
-  		expect(url.hash_code.size).to eq 8 
+  		expect(url.hash_code.size).to eq 11 
   	end
- 
 
 
+  end
+
+  context "test validation" do
+  	it "doesn't validate without a link" do
+  		url = Url.new_with_hash(link: "")
+  		url.save
+  		expect(false)
+  	end
   end
 
 
