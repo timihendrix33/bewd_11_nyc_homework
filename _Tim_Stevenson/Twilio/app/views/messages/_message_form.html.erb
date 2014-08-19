@@ -1,0 +1,18 @@
+
+<%= form_for @message do |f| %>
+<fieldset>
+  <div class="fields">
+	  <%= f.label :friend %>
+	  <%= f.text_field :friend %>
+  </div>
+  <div class="fields">
+	  <%= f.label :number %>
+	  <%= f.telephone_field :number %>
+  </div>
+  <div class="fields">
+	  <%= f.label :msg %>
+	  <%= f.text_field :msg %>
+  </div>
+</fieldset>
+<%= f.submit %>
+<%end%>
